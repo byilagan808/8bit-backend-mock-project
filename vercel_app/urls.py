@@ -22,11 +22,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('main_app.urls')),
-    url(r'^download/', db_views.get_file, {'add_attachment_headers': True},
-    name='db_file_storage.download_file'),
-    url(r'^get/', db_views.get_file, {'add_attachment_headers': False},
-    name='db_file_storage.get_file'
+urlpatterns = [ 
+    path('admin/', admin.site.urls), 
+    path('', include('main_app.urls')), 
+    url(r'^download/', db_views.get_file, {'add_attachment_headers': True}, name='db_file_storage.download_file'), 
+    url(r'^get/', db_views.get_file, {'add_attachment_headers': False}, name='db_file_storage.get_file') 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

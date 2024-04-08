@@ -19,3 +19,12 @@ class MiscImage(models.Model):
     def delete(self, *args, **kwargs): 
         super(MiscImage, self).delete(*args, **kwargs)
         File.objects.filter(filename = self.image.name).delete()
+
+
+class TvShow(models.Model):
+    name = models.CharField(max_length=100)
+    short_description = models.TextField(max_length=500)
+    images = models.ManyToManyField(MiscImage)
+
+    def __str__(self):
+        return self.name

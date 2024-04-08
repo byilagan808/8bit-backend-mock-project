@@ -14,3 +14,7 @@ class MiscImageAdmin(admin.ModelAdmin):
 
 admin.site.register(MiscImage,MiscImageAdmin)
 
+class TvShowAdmin(admin.ModelAdmin):
+    filter_horizontal = ["images"]
+
+admin.site.register(TvShow,TvShowAdmin)
