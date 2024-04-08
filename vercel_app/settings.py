@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os from dotenv 
+import load_dotenv 
+load_dotenv()
+
 
 from pathlib import Path
 
@@ -77,7 +81,16 @@ WSGI_APPLICATION = 'vercel_app.wsgi.app'
 # Note: Django modules for using databases are not support in serverless
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
 
-DATABASES = {}
+DATABASES = {
+    'default': { 
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+        'HOST' : os.getenv('MOCK_DATABASE_HOST'), 
+        'USER': os.getenv('MOCK_DATABASE_USER'), 
+        'PASSWORD': os.getenv('MOCK_DATABASE_PASSWORD'), 
+        'NAME': 'postgres', 
+        "PORT": "5432", 
+    } 
+}
 
 
 # Password validation
