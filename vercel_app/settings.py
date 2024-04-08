@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main_app'
+    'main_app',
+    'db_file_storage'
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,5 @@ try:
     print('Local settings imported')
 except ImportError:
     print('Local settings were not imported')
+
+DEFAULT_FILE_STORAGE = 'db_file_storage.storage.DatabaseFileStorage'
