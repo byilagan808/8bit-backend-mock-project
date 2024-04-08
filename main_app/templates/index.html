@@ -10,5 +10,16 @@
 </head>
 <body>
     <h1>8bit Backend Mock Project</h1>
+
+    {% for show in shows %}
+        <div>
+            <h2>{{ show.name }}</h2>
+            <p>{{ show.short_description }}</p>
+            {% for miscImage in show.images.all %}
+                <img src="{{ miscImage.image.url }}" />
+            {% endfor %}
+        </div>
+    {% endfor %}
+    
 </body>
 </html>
