@@ -146,5 +146,17 @@ try:
     print('Local settings imported')
 except ImportError:
     print('Local settings were not imported')
+    REST_FRAMEWORK = { 
+        'DEFAULT_RENDERER_CLASSES': ( 
+            'rest_framework.renderers.JSONRenderer', 
+        ),
+        'DEFAULT_AUTHENTICATION_CLASSES': [ 
+            'rest_framework.authentication.BasicAuthentication', 
+        ], 
+        'DEFAULT_PERMISSION_CLASSES': [ 
+            'rest_framework.permissions.IsAuthenticated', 
+        ]
+    }
+
 
 DEFAULT_FILE_STORAGE = 'db_file_storage.storage.DatabaseFileStorage'
