@@ -15,11 +15,13 @@
         <div>
             <h2>{{ show.name }}</h2>
             <p>{{ show.short_description }}</p>
-            {% for miscImage in show.images.all %}
-                <img src="{{ miscImage.image.url }}" />
-            {% endfor %}
+            {% if show.images.all %}
+                {% for miscImage in show.images.all %}
+                    <img src="{{ miscImage.image.url }}" />
+                {% endfor %}
+            {% endif %}
         </div>
     {% endfor %}
-    
+
 </body>
 </html>

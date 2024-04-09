@@ -5,6 +5,6 @@ from .models import *
 def index(request):
     shows = TvShow.objects.prefetch_related("images").all()
 
-    return render(request, "index.html",{"shows":shows})
+    return render(request,"index.html",{"shows":shows})
 
 
